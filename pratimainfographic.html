@@ -43,6 +43,9 @@
         <header class="text-center my-12">
             <h1 class="text-4xl md:text-6xl font-black text-[#003F5C] leading-tight">From Fiber to Fabric</h1>
             <p class="text-lg md:text-xl text-[#374C80] mt-4 max-w-3xl mx-auto">An interactive journey into the world of textiles, exploring the fundamental building blocks and processes that create the materials around us.</p>
+            <button id="readAloudBtn" class="mt-4 px-6 py-2 bg-[#BC5090] text-white rounded-full shadow-md hover:bg-[#A94782] transition-colors">
+                <span id="readAloudText">Read Aloud</span>
+            </button>
         </header>
 
         <section id="production-pipeline" class="my-16">
@@ -255,6 +258,38 @@
     </div>
 
     <script>
+        document.getElementById('readAloudBtn').addEventListener('click', function() {
+            const btn = this;
+            const btnText = document.getElementById('readAloudText');
+            const sections = document.querySelectorAll('section');
+            const textToSpeak = Array.from(sections).map(section => {
+                const title = section.querySelector('h2, h3').textContent;
+                const paragraphs = Array.from(section.querySelectorAll('p, li')).map(p => p.textContent).join('. ');
+                return `${title}. ${paragraphs}`;
+            }).join('. ');
+
+            const synth = window.speechSynthesis;
+            if (synth.speaking) {
+                synth.cancel();
+                btnText.textContent = "Read Aloud";
+                return;
+            }
+
+            const utterance = new SpeechSynthesisUtterance(textToSpeak);
+            utterance.voice = synth.getVoices().find(v => v.name.includes('Google') && v.lang.includes('en'));
+            utterance.rate = 1.1;
+
+            utterance.onstart = function() {
+                btnText.textContent = "Stop Reading";
+            };
+
+            utterance.onend = function() {
+                btnText.textContent = "Read Aloud";
+            };
+            
+            synth.speak(utterance);
+        });
+
         function wrapLabel(str, maxWidth) {
             if (str.length <= maxWidth) return str;
             let wrapped = [];
