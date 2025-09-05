@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Fiber to Fabric: The Story of Textiles</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .flow-arrow {
+            color: #FFA600;
+        }
+        .hierarchy-card {
+            border-left: 2px solid #FFA600;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center my-12">
+            <h1 class="text-4xl md:text-6xl font-black text-[#003F5C] leading-tight">From Fiber to Fabric</h1>
+            <p class="text-lg md:text-xl text-[#374C80] mt-4 max-w-3xl mx-auto">An interactive journey into the world of textiles, exploring the fundamental building blocks and processes that create the materials around us.</p>
+        </header>
+
+        <section id="production-pipeline" class="my-16">
+            <div class="bg-white rounded-2xl shadow-lg p-6 md:p-10">
+                <h2 class="text-3xl font-bold text-center text-[#003F5C] mb-8">The Production Pipeline</h2>
+                <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0 md:space-x-4 text-center">
+                    <div class="flex flex-col items-center w-full md:w-1/5">
+                        <div class="text-5xl mb-2">🌱</div>
+                        <h3 class="font-bold text-lg text-[#003F5C]">1. Raw Fibers</h3>
+                        <p class="text-sm text-gray-600">The journey begins with natural or man-made raw materials.</p>
+                    </div>
+                    <div class="transform rotate-90 md:rotate-0 text-4xl font-light flow-arrow">→</div>
+                    <div class="flex flex-col items-center w-full md:w-1/5">
+                        <div class="text-5xl mb-2">🧵</div>
+                        <h3 class="font-bold text-lg text-[#003F5C]">2. Spinning (Yarn)</h3>
+                        <p class="text-sm text-gray-600">Fibers are twisted together to create strong, continuous yarn.</p>
+                    </div>
+                    <div class="transform rotate-90 md:rotate-0 text-4xl font-light flow-arrow">→</div>
+                    <div class="flex flex-col items-center w-full md:w-1/5">
+                        <div class="text-5xl mb-2">🕸️</div>
+                        <h3 class="font-bold text-lg text-[#003F5C]">3. Weaving/Knitting</h3>
+                        <p class="text-sm text-gray-600">Yarn is interlaced or looped to form raw 'grey' fabric.</p>
+                    </div>
+                    <div class="transform rotate-90 md:rotate-0 text-4xl font-light flow-arrow">→</div>
+                    <div class="flex flex-col items-center w-full md:w-1/5">
+                        <div class="text-5xl mb-2">🎨</div>
+                        <h3 class="font-bold text-lg text-[#003F5C]">4. Dyeing & Finishing</h3>
+                        <p class="text-sm text-gray-600">Fabric is colored and treated for texture and performance.</p>
+                    </div>
+                    <div class="transform rotate-90 md:rotate-0 text-4xl font-light flow-arrow">→</div>
+                    <div class="flex flex-col items-center w-full md:w-1/5">
+                        <div class="text-5xl mb-2">👕</div>
+                        <h3 class="font-bold text-lg text-[#003F5C]">5. Garment Mfg.</h3>
+                        <p class="text-sm text-gray-600">Finished fabric is cut and sewn into apparel and goods.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="fiber-classification" class="my-16">
+            <h2 class="text-3xl font-bold text-center text-[#003F5C] mb-8">The Building Blocks: Classifying Fibers</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold text-[#374C80] mb-4">By Length</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-lg">Staple Fibers</h4>
+                            <p class="text-gray-600">Short fibers, measured in millimeters or inches. All natural fibers except silk are staple fibers. They create softer, fuzzier yarns.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg">Filament Fibers</h4>
+                            <p class="text-gray-600">Long, continuous fibers measured in meters or yards. Silk and all man-made fibers are filaments. They produce smoother, more lustrous yarns.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold text-[#374C80] mb-4">By Source</h3>
+                     <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-lg">Natural Fibers</h4>
+                            <p class="text-gray-600">Sourced from plants, animals, or minerals found in nature.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg">Man-Made Fibers</h4>
+                            <p class="text-gray-600">Synthesized from chemical processes, often using petrochemicals or regenerated natural materials like wood pulp.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-lg p-8 mt-8">
+                <h3 class="text-2xl font-bold text-[#374C80] mb-6 text-center">The Fiber Family Tree</h3>
+                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="hierarchy-card p-4">
+                        <h4 class="font-bold text-lg text-[#003F5C]">Vegetable</h4>
+                        <ul class="list-disc list-inside text-gray-600 mt-2 pl-2">
+                           <li>Seed (Cotton)</li>
+                           <li>Bast (Linen, Jute)</li>
+                           <li>Leaf (Sisal)</li>
+                        </ul>
+                    </div>
+                    <div class="hierarchy-card p-4">
+                        <h4 class="font-bold text-lg text-[#003F5C]">Animal</h4>
+                        <ul class="list-disc list-inside text-gray-600 mt-2 pl-2">
+                           <li>Hair (Wool, Cashmere)</li>
+                           <li>Secretion (Silk)</li>
+                        </ul>
+                    </div>
+                    <div class="hierarchy-card p-4">
+                        <h4 class="font-bold text-lg text-[#003F5C]">Man-Made (Cellulosic)</h4>
+                        <ul class="list-disc list-inside text-gray-600 mt-2 pl-2">
+                           <li>Rayon</li>
+                           <li>Lyocell</li>
+                           <li>Acetate</li>
+                        </ul>
+                    </div>
+                     <div class="hierarchy-card p-4">
+                        <h4 class="font-bold text-lg text-[#003F5C]">Man-Made (Non-Cellulosic)</h4>
+                        <ul class="list-disc list-inside text-gray-600 mt-2 pl-2">
+                           <li>Polyester</li>
+                           <li>Nylon</li>
+                           <li>Spandex</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="fiber-properties" class="my-16">
+            <h2 class="text-3xl font-bold text-center text-[#003F5C] mb-2">What Makes a Fiber Great?</h2>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto mb-8">Fibers are chosen for their unique combination of properties. Below, we compare the primary performance characteristics of Cotton and Linen.</p>
+            <div class="bg-white rounded-2xl shadow-lg p-6 md:p-10">
+                <div class="chart-container h-96 md:h-[450px]">
+                    <canvas id="propertiesRadarChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="cotton-linen" class="my-16">
+             <h2 class="text-3xl font-bold text-center text-[#003F5C] mb-8">A Tale of Two Fibers: Cotton vs. Linen</h2>
+             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h3 class="text-3xl font-bold text-[#BC5090] mb-4">Cotton: The King of Fibers</h3>
+                    <p class="text-gray-600 mb-6">Derived from the seed pod of the cotton plant, this fiber is celebrated for its comfort and versatility. Its natural twist, called convolution, helps fibers cohere into strong yarn.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold text-lg mb-2">Favorable Properties</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Highly Absorbent & Breathable</li>
+                                <li>Soft and Comfortable</li>
+                                <li>Good Strength</li>
+                                <li>Easy to Clean & Dye</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg mb-2">Unfavorable Properties</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Wrinkles Easily</li>
+                                <li>Low Luster</li>
+                                <li>Susceptible to Mildew</li>
+                            </ul>
+                        </div>
+                    </div>
+                     <div class="mt-8">
+                        <h4 class="text-xl font-bold text-center text-[#374C80] mb-4">The Power of One Cotton Bale</h4>
+                        <div class="chart-container h-72 md:h-80">
+                            <canvas id="cottonBaleChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                 <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h3 class="text-3xl font-bold text-[#7A5195] mb-4">Linen: The Ancient Staple</h3>
+                    <p class="text-gray-600 mb-6">Harvested from the stem of the flax plant, linen is one of the oldest textiles known to humankind. It is prized for its exceptional coolness and fresh feel in hot weather.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold text-lg mb-2">Favorable Properties</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Excellent Strength (Strongest Veg. Fiber)</li>
+                                <li>Very Absorbent & Quick-Drying</li>
+                                <li>Naturally Lustrous</li>
+                                <li>Becomes Softer with Use</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg mb-2">Unfavorable Properties</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Wrinkles Very Easily</li>
+                                <li>Less Elasticity</li>
+                                <li>Can be Brittle</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <h4 class="text-xl font-bold text-center text-[#374C80] mb-4">From Flax to Linen: Key Steps</h4>
+                        <ol class="relative border-l border-gray-300 ml-4 mt-6">                  
+                            <li class="mb-6 ml-6">            
+                                <span class="absolute flex items-center justify-center w-6 h-6 bg-[#FFA600] rounded-full -left-3 ring-8 ring-white">1</span>
+                                <h5 class="font-semibold">Retting</h5>
+                                <p class="text-sm text-gray-600">Microbes and moisture break down the plant's woody stem.</p>
+                            </li>
+                            <li class="mb-6 ml-6">
+                                <span class="absolute flex items-center justify-center w-6 h-6 bg-[#EF5675] rounded-full -left-3 ring-8 ring-white">2</span>
+                                <h5 class="font-semibold">Scutching</h5>
+                                <p class="text-sm text-gray-600">The woody stalk is crushed and removed to release the fibers.</p>
+                            </li>
+                            <li class="ml-6">
+                                <span class="absolute flex items-center justify-center w-6 h-6 bg-[#BC5090] rounded-full -left-3 ring-8 ring-white">3</span>
+                                <h5 class="font-semibold">Hackling</h5>
+                                <p class="text-sm text-gray-600">Fibers are combed to separate long staples from short tow.</p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+        <section id="industry-segments" class="my-16">
+            <h2 class="text-3xl font-bold text-center text-[#003F5C] mb-2">The Modern Textile Industry</h2>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto mb-8">Today's textile industry is incredibly diverse, extending far beyond just clothing. This chart shows the major segments where textiles are used.</p>
+            <div class="bg-white rounded-2xl shadow-lg p-6 md:p-10">
+                <div class="chart-container h-80 md:h-96">
+                    <canvas id="industrySegmentsChart"></canvas>
+                </div>
+            </div>
+        </section>
+        
+        <footer class="text-center py-8 mt-12 border-t">
+            <p class="text-gray-500">Infographic created to visualize the fundamentals of textile science.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        function wrapLabel(str, maxWidth) {
+            if (str.length <= maxWidth) return str;
+            let wrapped = [];
+            let words = str.split(' ');
+            let currentLine = '';
+            for (let word of words) {
+                if ((currentLine + word).length > maxWidth && currentLine.length > 0) {
+                    wrapped.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            }
+            wrapped.push(currentLine.trim());
+            return wrapped;
+        }
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+        
+        const sharedChartOptions = {
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#003F5C',
+                        font: {
+                            family: "'Inter', sans-serif",
+                            size: 14,
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    },
+                    backgroundColor: '#003F5C',
+                    titleFont: {
+                        size: 16,
+                        family: "'Inter', sans-serif",
+                    },
+                    bodyFont: {
+                        size: 14,
+                        family: "'Inter', sans-serif",
+                    }
+                }
+            }
+        };
+
+        const propertiesData = {
+            labels: ['Strength', 'Absorbency', 'Resilience (Wrinkle Resistance)', 'Luster', 'Flexibility', 'Durability'],
+            datasets: [{
+                label: 'Cotton',
+                data: [3.5, 4.5, 2, 2.5, 4, 3.5],
+                fill: true,
+                backgroundColor: 'rgba(239, 86, 117, 0.2)',
+                borderColor: '#EF5675',
+                pointBackgroundColor: '#EF5675',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: '#EF5675'
+            }, {
+                label: 'Linen',
+                data: [5, 4, 1.5, 3.5, 3, 4.5],
+                fill: true,
+                backgroundColor: 'rgba(122, 81, 149, 0.2)',
+                borderColor: '#7A5195',
+                pointBackgroundColor: '#7A5195',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: '#7A5195'
+            }]
+        };
+        propertiesData.labels = propertiesData.labels.map(label => wrapLabel(label, 16));
+        new Chart(document.getElementById('propertiesRadarChart'), {
+            type: 'radar',
+            data: propertiesData,
+            options: { ...sharedChartOptions,
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(0, 63, 92, 0.2)' },
+                        grid: { color: 'rgba(0, 63, 92, 0.2)' },
+                        pointLabels: { 
+                            color: '#003F5C', 
+                            font: { size: 12, weight: 'bold', family: "'Inter', sans-serif" }
+                        },
+                        ticks: {
+                            backdropColor: 'rgba(255, 255, 255, 0.75)',
+                            color: '#374C80',
+                            stepSize: 1
+                        }
+                    }
+                }
+            }
+        });
+        
+        new Chart(document.getElementById('cottonBaleChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['T-Shirts (1200)', 'Shirts (750)', 'Jeans (215)', 'Bed Sheets (250)'],
+                datasets: [{
+                    label: 'Products from one 225kg Bale',
+                    data: [1200, 750, 215, 250],
+                    backgroundColor: ['#BC5090', '#EF5675', '#FF764A', '#FFA600'],
+                    borderColor: '#fff',
+                    borderWidth: 4,
+                    hoverOffset: 8
+                }]
+            },
+            options: {
+                ...sharedChartOptions,
+                cutout: '60%',
+            }
+        });
+
+        const industrySegmentsData = {
+            labels: ['Apparel', 'Home Textiles', 'Technical/Industrial Textiles', 'Yarn & Thread', 'Finishing Services'],
+            datasets: [{
+                label: 'Relative Market Share',
+                data: [45, 25, 20, 7, 3],
+                backgroundColor: ['#003F5C', '#7A5195', '#BC5090', '#FF764A', '#FFA600'],
+                borderRadius: 8,
+                barThickness: 40,
+            }]
+        };
+        industrySegmentsData.labels = industrySegmentsData.labels.map(label => wrapLabel(label, 16));
+        new Chart(document.getElementById('industrySegmentsChart'), {
+            type: 'bar',
+            data: industrySegmentsData,
+            options: { ...sharedChartOptions,
+                indexAxis: 'y',
+                 scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: {
+                            display: false,
+                            drawBorder: false,
+                        },
+                        ticks: { color: '#003F5C' }
+                    },
+                    y: {
+                        grid: {
+                             display: false,
+                             drawBorder: false,
+                        },
+                        ticks: { color: '#003F5C', font: { weight: '600' } }
+                    }
+                },
+                 plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
